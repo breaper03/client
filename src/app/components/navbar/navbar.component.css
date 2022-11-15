@@ -1,0 +1,19 @@
+.spacer {
+  flex: 1 1 auto;
+}
+
+.container {
+  width: 100%;
+  justify-content: center;
+}
+
+button {
+  margin-right: 1em;
+}
+
+.box {
+  width: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
