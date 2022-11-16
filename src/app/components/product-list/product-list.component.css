@@ -1,0 +1,31 @@
+.container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.table {
+  width: 90%;
+  margin: 2em;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+.card {
+  width: 90%;
+  padding: 3em 0;
+  margin: 2em;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+
+.box {
+  width: 100%;
+  justify-content: center;
+  display: flex;
+  flex-direction: row-reverse;
+}
