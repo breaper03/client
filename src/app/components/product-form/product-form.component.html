@@ -1,1 +1,48 @@
-<p>product-form works!</p>
+
+<div class="all">
+  <mat-card class="card _">
+    <div class="grid">
+      <h3 class="mat-title title">
+        {{ isNewRecord ? 'Crear Producto' : 'Editar Producto' }}
+      </h3>
+      <div class="row">
+        <mat-form-field class="name">
+          <input matInput type="text" placeholder="Nombre" formControlName="name">
+        </mat-form-field>
+      </div>
+      <div class="row">
+        <mat-form-field class="description">
+          <input matInput type="text" placeholder="Descripcion" formControlName="description00">
+        </mat-form-field>
+      </div>
+      <div class="row">
+        <mat-form-field>
+          <input matInput type="text" placeholder="Precio" formControlName="price">
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput type="number" placeholder="Imagen URL" formControlName="imgUrl">
+        </mat-form-field>
+      </div>
+      <div class="row">
+          <a
+            class="btn"
+            mat-raised-button
+            color="accent"
+            aria-label="Agregar"
+            (onsubmit)="onSubmit()"
+          >
+            Agregar
+          </a>
+          <a
+            class="btn "
+            mat-stroked-button
+            color="accent"
+            aria-label="Volver"
+            [routerLink]="routerList"
+          >
+            Volver
+          </a>
+      </div>
+    </div>
+  </mat-card>
+</div>

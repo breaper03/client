@@ -10,11 +10,11 @@ import { urls } from 'src/shared/urls';
   providedIn: 'root'
 })
 export class ProductsService {
-  private bases = 'http://localhost:3331/'
+  private bases = 'http://localhost:3331'
   constructor(private http: HttpClient) {}
 
-  getAll(): Observable<Product[]> {
-    return this.http.get<Product[]>(`${this.bases}/products`)
+  getAll() {
+    return this.http.get<{products: Product[]}>(`${this.bases}/products`)
   }
 
   getOne(_id: string): Observable<Product> {

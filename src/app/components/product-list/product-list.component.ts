@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { ProductsService } from 'src/app/services/products.service';
 import { Product } from 'src/app/shared/interfaces/product.interface';
+import { urls } from 'src/shared/urls';
 
 @Component({
   selector: 'app-product-list',
@@ -9,23 +10,18 @@ import { Product } from 'src/app/shared/interfaces/product.interface';
   styleUrls: ['./product-list.component.css']
 })
 export class ProductListComponent implements OnInit {
-  public list: Product[] = []
+  list: Product[] = []
+  routerAdd = urls.addProduct
 
   constructor(private productService: ProductsService) {}
 
   // displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
-  displayedColumns: string[] = ['Nombre', 'Descripcion', 'Imagen', 'Precio', 'Acciones'];
+  displayedColumns: string[] = ['name', 'description', 'image', 'price', 'actions'];
 
 
   getAll() {
     this.productService.getAll().subscribe(
-      res => {return res}
-    )
-  }
-
-  getOne(_id: string) {
-    this.productService.getOne(_id).subscribe(
-      res => {return res}
+      res => {this.list = [...res.products]}
     )
   }
 
@@ -36,6 +32,7 @@ export class ProductListComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.getAll()
   }
 
 }

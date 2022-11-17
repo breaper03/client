@@ -14,11 +14,14 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatTableModule} from '@angular/material/table';
 import {MatButtonModule} from '@angular/material/button';
 import {MatTooltipModule} from '@angular/material/tooltip';
-import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatFormFieldModule, MAT_FORM_FIELD_DEFAULT_OPTIONS} from '@angular/material/form-field';
 import {MatCardModule} from '@angular/material/card';
+import {MatInputModule} from '@angular/material/input'
 
 //@Red
 import { HttpClientModule } from '@angular/common/http';
+import { FormBuilder } from '@angular/forms';
+import { ProductsService } from './services/products.service';
 
 @NgModule({
   declarations: [
@@ -39,9 +42,9 @@ import { HttpClientModule } from '@angular/common/http';
     MatTooltipModule,
     MatFormFieldModule,
     MatCardModule,
-
+    MatInputModule
   ],
-  providers: [],
+  providers: [{provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {appearance: 'outline'}}, FormBuilder, ProductsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -6,7 +6,8 @@
 
 .table {
   width: 90%;
-  margin: 2em;
+  margin: 1em;
+
 }
 
 .mat-form-field {
@@ -14,18 +15,23 @@
   width: 100%;
 }
 
-.card {
+/* th.mat-header-cell, td.mat-header-cell {
+  text-align: center;
+} */
+
+.btn {
   width: 90%;
-  padding: 3em 0;
-  margin: 2em;
-  align-items: center;
-  justify-content: center;
-  display: flex;
+}
+
+.btn a {
+  float: right;
 }
 
 .box {
   width: 100%;
+  padding: 1em;
   justify-content: center;
+  align-items: baseline;
   display: flex;
-  flex-direction: row-reverse;
+  flex-direction: column;
 }
