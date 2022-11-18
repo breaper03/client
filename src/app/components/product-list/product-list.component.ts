@@ -10,13 +10,14 @@ import { urls } from 'src/shared/urls';
   styleUrls: ['./product-list.component.css']
 })
 export class ProductListComponent implements OnInit {
-  list: Product[] = []
-  routerAdd = urls.addProduct
+  list: Product[] = [];
+  routerAdd = urls.addProduct;
+  routerEdit = urls.updateProduct;
 
   constructor(private productService: ProductsService) {}
 
   // displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
-  displayedColumns: string[] = ['name', 'description', 'image', 'price', 'actions'];
+  displayedColumns: string[] = ['name', 'description', 'img', 'price', 'actions'];
 
 
   getAll() {
@@ -25,14 +26,22 @@ export class ProductListComponent implements OnInit {
     )
   }
 
-  delete(_id: string) {
-    this.productService.delete(_id).subscribe(
+  getOne(_id: string) {
+    const el = this.productService.getOne(_id).subscribe(
       res => {return res}
     )
+    console.log(el);
+    return el
+  }
+
+  remove(_id: string) {
+    const el = this.getOne(_id)
+    this.productService.delete(_id)
   }
 
   ngOnInit(): void {
     this.getAll()
+
   }
 
 }

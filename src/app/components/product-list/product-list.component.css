@@ -15,9 +15,9 @@
   width: 100%;
 }
 
-/* th.mat-header-cell, td.mat-header-cell {
+th.mat-header-cell, tr.mat-row {
   text-align: center;
-} */
+}
 
 .btn {
   width: 90%;
@@ -27,11 +27,13 @@
   float: right;
 }
 
+
+
 .box {
   width: 100%;
   padding: 1em;
   justify-content: center;
-  align-items: baseline;
+  align-items: center;
   display: flex;
   flex-direction: column;
 }
