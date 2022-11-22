@@ -34,7 +34,7 @@ export class ProductListComponent implements OnInit {
     return el
   }
 
-  remove(_id: string) {
+  delete(_id: string) {
     const el = this.getOne(_id)
     this.productService.delete(_id)
   }

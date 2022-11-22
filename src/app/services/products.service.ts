@@ -21,8 +21,8 @@ export class ProductsService {
     return this.http.get<Product>(`${this.bases}/products/${_id}`)
   }
 
-  create(product: Product): Observable<Product> {
-    return this.http.post<Product>(`${this.bases}/product/create`, product)
+  create(product: Product) { console.log(product, 'productService');
+    return this.http.post<Product>(`http://localhost:3331/products/create`, product)
   }
 
   update(_id: string, product: Product) {

@@ -7,6 +7,6 @@ export const urls = {
   listProduct: '/',
   addProduct: 'product/create',
   searchProduct: 'product/:id',
-  updateProduct: 'product/:id/',
-  deleteProduct: 'product/:id/',
+  updateProduct: 'product/:id',
+  deleteProduct: 'product/:id',
 }

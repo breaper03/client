@@ -1,48 +1,64 @@
 
-<div class="all">
-  <mat-card class="card _">
-    <div class="grid">
-      <h3 class="mat-title title">
-        {{ isNewRecord ? 'Crear Producto' : 'Editar Producto' }}
-      </h3>
-      <div class="row">
-        <mat-form-field class="name">
-          <input matInput type="text" placeholder="Nombre" formControlName="name">
-        </mat-form-field>
+<form [formGroup]="fb" (submit)="onSubmit()" class="p-0">
+
+  <div class="all">
+    <mat-card class="card _">
+      <div class="grid">
+        <h3 class="mat-title title">
+          {{ isNewRecord ? 'Crear Producto' : 'Editar Producto' }}
+        </h3>
+        <div class="row">
+          <mat-form-field class="name">
+            <input matInput type="text" placeholder="Nombre" formControlName="name">
+            <mat-error *ngIf="fb.controls['name']?.touched && fb.controls['name'].errors?.['required']">
+              Campo <b>requerido</b>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="row">
+          <mat-form-field class="description">
+            <input matInput type="text" placeholder="Descripcion" formControlName="description">
+            <mat-error *ngIf="fb.controls['description']?.touched && fb.controls['description'].errors?.['required']">
+              Campo <b>requerido</b>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="row">
+          <mat-form-field>
+            <input matInput type="text" placeholder="Imagen URL" formControlName="imgUrl">
+            <mat-error *ngIf="fb.controls['imgUrl']?.touched && fb.controls['imgUrl'].errors?.['required']">
+              Campo <b>requerido</b>
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput type="number" placeholder="Precio" formControlName="price">
+            <mat-error *ngIf="fb.controls['price']?.touched && fb.controls['price'].errors?.['required']">
+              Campo <b>requerido</b>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="row">
+            <button
+              class="btn"
+              mat-raised-button
+              color="accent"
+              type="submit"
+              aria-label="Agregar"
+              (submit)="onSubmit()"
+            >
+              Agregar
+        </button>
+            <a
+              class="btn "
+              mat-stroked-button
+              color="accent"
+              aria-label="Volver"
+              [routerLink]="routerList"
+            >
+              Volver
+            </a>
+        </div>
       </div>
-      <div class="row">
-        <mat-form-field class="description">
-          <input matInput type="text" placeholder="Descripcion" formControlName="description00">
-        </mat-form-field>
-      </div>
-      <div class="row">
-        <mat-form-field>
-          <input matInput type="text" placeholder="Precio" formControlName="price">
-        </mat-form-field>
-        <mat-form-field>
-          <input matInput type="number" placeholder="Imagen URL" formControlName="imgUrl">
-        </mat-form-field>
-      </div>
-      <div class="row">
-          <a
-            class="btn"
-            mat-raised-button
-            color="accent"
-            aria-label="Agregar"
-            (onsubmit)="onSubmit()"
-          >
-            Agregar
-          </a>
-          <a
-            class="btn "
-            mat-stroked-button
-            color="accent"
-            aria-label="Volver"
-            [routerLink]="routerList"
-          >
-            Volver
-          </a>
-      </div>
-    </div>
-  </mat-card>
-</div>
+    </mat-card>
+  </div>
+</form>
