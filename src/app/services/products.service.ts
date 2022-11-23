@@ -21,15 +21,15 @@ export class ProductsService {
     return this.http.get<Product>(`${this.bases}/products/${_id}`)
   }
 
-  create(product: Product) { console.log(product, 'productService');
-    return this.http.post<Product>(`http://localhost:3331/products/create`, product)
+  create(product: Product) {
+    return this.http.post<Product>(`${this.bases}/products/create`, product)
   }
 
   update(_id: string, product: Product) {
-    return this.http.put<Product>(`${this.bases}/${_id}`, product)
+    return this.http.put<Product>(`${this.bases}/products/${_id}`, product)
   }
 
   delete(_id: string) {
-    return this.http.delete(`${this.bases}/${_id}`)
+    return this.http.delete(`${this.bases}/products/${_id}`)
   }
 }

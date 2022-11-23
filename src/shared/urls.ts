@@ -5,8 +5,8 @@ export const urls = {
   users_password: 'users_password',
 
   listProduct: '/',
-  addProduct: 'product/create',
-  searchProduct: 'product/:id',
-  updateProduct: 'product/:id',
-  deleteProduct: 'product/:id',
+  addProduct: '/products/create',
+  searchProduct: '/products/:id',
+  updateProduct: '/products/:id',
+  deleteProduct: '/products/:id',
 }

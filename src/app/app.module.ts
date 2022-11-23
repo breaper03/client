@@ -16,19 +16,23 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatFormFieldModule, MAT_FORM_FIELD_DEFAULT_OPTIONS} from '@angular/material/form-field';
 import {MatCardModule} from '@angular/material/card';
-import {MatInputModule} from '@angular/material/input'
-
+import {MatInputModule} from '@angular/material/input';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatPaginatorModule} from '@angular/material/paginator';
 //@Red
 import { HttpClientModule } from '@angular/common/http';
 import { FormBuilder, ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { ProductsService } from './services/products.service';
+import { LoaderComponent } from './loader/loader.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     ProductListComponent,
-    ProductFormComponent
+    ProductFormComponent,
+    LoaderComponent
   ],
   imports: [
     BrowserModule,
@@ -43,6 +47,9 @@ import { ProductsService } from './services/products.service';
     MatFormFieldModule,
     MatCardModule,
     MatInputModule,
+    MatProgressSpinnerModule,
+    MatDialogModule,
+    MatPaginatorModule,
     ReactiveFormsModule,
     FormsModule
   ],

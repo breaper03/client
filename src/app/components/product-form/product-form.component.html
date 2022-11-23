@@ -25,8 +25,8 @@
         </div>
         <div class="row">
           <mat-form-field>
-            <input matInput type="text" placeholder="Imagen URL" formControlName="imgUrl">
-            <mat-error *ngIf="fb.controls['imgUrl']?.touched && fb.controls['imgUrl'].errors?.['required']">
+            <input matInput type="text" placeholder="Imagen URL" formControlName="img">
+            <mat-error *ngIf="fb.controls['img']?.touched && fb.controls['img'].errors?.['required']">
               Campo <b>requerido</b>
             </mat-error>
           </mat-form-field>
@@ -45,8 +45,9 @@
               type="submit"
               aria-label="Agregar"
               (submit)="onSubmit()"
+              [disabled]="fb.invalid"
             >
-              Agregar
+            {{ isNewRecord ? 'Aceptar' : 'Guardar' }}
         </button>
             <a
               class="btn "

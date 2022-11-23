@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { MatTableDataSource } from '@angular/material/table';
 import { ProductsService } from 'src/app/services/products.service';
 import { Product } from 'src/app/shared/interfaces/product.interface';
 import { urls } from 'src/shared/urls';
@@ -10,6 +9,7 @@ import { urls } from 'src/shared/urls';
   styleUrls: ['./product-list.component.css']
 })
 export class ProductListComponent implements OnInit {
+  message = ''
   list: Product[] = [];
   routerAdd = urls.addProduct;
   routerEdit = urls.updateProduct;
@@ -19,6 +19,7 @@ export class ProductListComponent implements OnInit {
   // displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
   displayedColumns: string[] = ['name', 'description', 'img', 'price', 'actions'];
 
+  initPaginate() {}
 
   getAll() {
     this.productService.getAll().subscribe(
@@ -34,14 +35,15 @@ export class ProductListComponent implements OnInit {
     return el
   }
 
-  delete(_id: string) {
-    const el = this.getOne(_id)
-    this.productService.delete(_id)
+  delete(product: Product) {
+    this.productService.delete(product._id ?? '').subscribe(
+      res => { return res }
+    )
   }
 
   ngOnInit(): void {
     this.getAll()
-
+    this.initPaginate()
   }
 
 }
